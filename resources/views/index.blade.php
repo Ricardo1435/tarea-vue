@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Tarea Desarrollo Web - RO @yield('title')</title>
+    <title>Tarea CRUD con Laravel y Vue</title>
     <!--CDNs-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -10,9 +11,12 @@
     <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     <link rel="icon" href="favicon.ico">
     <script src="https://kit.fontawesome.com/85601d370d.js" crossorigin="anonymous"></script>
-</head>
-<body>
 
+{{--    <link rel="stylesheet" href="{{ mix('css/app.css') }}" />--}}
+    <script defer src="{{ mix('js/app.js') }}"></script>
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <a class="navbar-brand" href="{{url('/')}}"><i class="fa fa-building" aria-hidden="true"></i> Tarea con VUE </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +24,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('home')}}">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('customerIndex')}}">Clientes</a>
-            </li>
 
         </ul>
         <!-- Right Side Of Navbar -->
@@ -64,11 +61,9 @@
     </div>
 </nav>
 
-
-<div class="container mt-2">
-    @yield('content')
-    <!-- Carrusel -->
-</div>
+    <div id="app">
+        <customer-index></customer-index>
+    </div>
 </body>
-<script src="{{asset('js/app.js')}}" async defer></script>
+
 </html>

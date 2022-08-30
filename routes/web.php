@@ -14,27 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
 
-})->name('home');
-
-Route::prefix('/customer')->group(
-    function (){
-
-        //Rutas de vistas
-        Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customerIndex');
-
-        Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'register'])->name('customerRegister');
-
-        Route::get('/edit/{id}',[\App\Http\Controllers\CustomerController::class, 'edit'])->name('customerEdit');
-
-        Route::get('/show/{id}',[\App\Http\Controllers\CustomerController::class, 'show'])->name('customerShow');
-
-        //Rutas http, peticiones al server
-        Route::post('/create', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customerCreate');
-        Route::patch('/update/{id}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customerUpdate');
-        Route::delete('/delete/{id}', [\App\Http\Controllers\CustomerController::class, 'delete'])->name('customerDelete');
-
-    }
-);
-
+Route::controller(\App\Http\Controllers\CustomerController::class)->group(function () {
+    Route::get('/customer/{id}', 'readOne');
+    Route::get('/customers', 'read');
+    Route::post('/customer', 'create');
+    Route::delete('/customer/{id}', 'delete');
+    Route::patch('/customer/{id}', 'edit');
+});
