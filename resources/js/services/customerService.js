@@ -10,7 +10,7 @@ export default {
     getCustomers() {
         return axios.get("/customers");
     },
-    getCustomer(id) {
+    editCustomer(id) {
         return axios.get(`/customer/${id}`);
     },
     updateCustomer(id, customer) {

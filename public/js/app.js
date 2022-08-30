@@ -5519,17 +5519,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -5552,7 +5541,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     showModal: function showModal() {
       this.$refs.commonModal.showModal();
     },
-    showEditForm: function showEditForm(id) {
+    editForm: function editForm(id) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -5561,7 +5550,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.getCustomer(id);
+                return _this.editCustomer(id);
 
               case 2:
                 _this.$refs.customerForm.updateCustomerInfo();
@@ -5608,7 +5597,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, null, [[0, 8]]);
       }))();
     },
-    getCustomer: function getCustomer(id) {
+    editCustomer: function editCustomer(id) {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
@@ -5619,7 +5608,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.prev = 0;
                 _context3.next = 3;
-                return _services_customerService__WEBPACK_IMPORTED_MODULE_2__["default"].getCustomer(id);
+                return _services_customerService__WEBPACK_IMPORTED_MODULE_2__["default"].editCustomer(id);
 
               case 3:
                 response = _context3.sent;
@@ -5851,7 +5840,7 @@ __webpack_require__.r(__webpack_exports__);
   getCustomers: function getCustomers() {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/customers");
   },
-  getCustomer: function getCustomer(id) {
+  editCustomer: function editCustomer(id) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/customer/".concat(id));
   },
   updateCustomer: function updateCustomer(id, customer) {
@@ -29362,9 +29351,7 @@ var render = function () {
     [
       _c("div", { staticClass: "h1 text-weight-bold" }, [_vm._v("Clientes")]),
       _vm._v(" "),
-      _c("div", { staticClass: "separator w-100 border-bottom" }),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "table-container" } }, [
+      _c("div", [
         _c("div", { staticClass: "card border-info" }, [
           _c("div", { staticClass: "text-start my-2" }, [
             _c("div", { staticClass: "card-header bg-info text-white" }, [
@@ -29447,15 +29434,11 @@ var render = function () {
                               staticClass: "btn btn-warning my-2",
                               on: {
                                 click: function ($event) {
-                                  return _vm.showEditForm(customer.id)
+                                  return _vm.editForm(customer.id)
                                 },
                               },
                             },
-                            [
-                              _vm._v(
-                                "\n                        Editar\n                    "
-                              ),
-                            ]
+                            [_vm._v("Editar")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -29468,11 +29451,7 @@ var render = function () {
                                 },
                               },
                             },
-                            [
-                              _vm._v(
-                                "\n                        Eliminar\n                    "
-                              ),
-                            ]
+                            [_vm._v("Eliminar")]
                           ),
                         ]),
                       ])
