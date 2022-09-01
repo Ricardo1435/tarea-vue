@@ -6,7 +6,7 @@
         <div class="card border-info">
         <div class="text-start my-2">
             <div class="card-header bg-info text-white">
-                <a class="btn btn-light" @click="showModal"> Nuevo</a>
+                <a class="btn btn-light" @click.prevent="showModal"> Nuevo</a>
             </div>
         </div>
           <div class="card-body">
@@ -33,7 +33,7 @@
                     <td>{{ customer.address }}</td>
                     <td>{{ customer.phone_number }}</td>
                     <td class="text-center">
-                        <button class="btn btn-warning my-2" @click="editForm(customer.id)">Editar</button>
+                        <button class="btn btn-warning my-2" @click.prevent="editForm(customer.id)">Editar</button>
                         <button class="btn btn-danger my-2" @click="deleteCustomer(customer.id)">Eliminar</button>
                     </td>
                 </tr>
@@ -50,7 +50,6 @@
                 @cancel="closeModal"
                 @update="updateCustomer"
                 :customer="customer">
-
             </customer-form>
         </modal>
     </div>

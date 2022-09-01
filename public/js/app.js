@@ -5518,7 +5518,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -29222,7 +29221,7 @@ var render = function () {
                 },
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: "name" },
+              attrs: { type: "text", required: "", id: "name" },
               domProps: { value: _vm.name },
               on: {
                 input: function ($event) {
@@ -29248,7 +29247,7 @@ var render = function () {
                 },
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: "address" },
+              attrs: { type: "text", required: "", id: "address" },
               domProps: { value: _vm.address },
               on: {
                 input: function ($event) {
@@ -29276,7 +29275,7 @@ var render = function () {
                 },
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: "phone_number" },
+              attrs: { type: "text", required: "", id: "phone_number" },
               domProps: { value: _vm.phone_number },
               on: {
                 input: function ($event) {
@@ -29295,7 +29294,12 @@ var render = function () {
                   "button",
                   {
                     staticClass: "btn btn-primary my-2",
-                    on: { click: _vm.saveHandler },
+                    on: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.saveHandler.apply(null, arguments)
+                      },
+                    },
                   },
                   [_vm._v("Guardar")]
                 )
@@ -29303,7 +29307,12 @@ var render = function () {
                   "button",
                   {
                     staticClass: "btn btn-primary my-2",
-                    on: { click: _vm.updateHandler },
+                    on: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.updateHandler.apply(null, arguments)
+                      },
+                    },
                   },
                   [_vm._v("Actualizar")]
                 ),
@@ -29312,7 +29321,12 @@ var render = function () {
               "button",
               {
                 staticClass: "btn btn-secondary my-2",
-                on: { click: _vm.cancelHandler },
+                on: {
+                  click: function ($event) {
+                    $event.preventDefault()
+                    return _vm.cancelHandler.apply(null, arguments)
+                  },
+                },
               },
               [_vm._v("Cancelar")]
             ),
@@ -29357,7 +29371,15 @@ var render = function () {
             _c("div", { staticClass: "card-header bg-info text-white" }, [
               _c(
                 "a",
-                { staticClass: "btn btn-light", on: { click: _vm.showModal } },
+                {
+                  staticClass: "btn btn-light",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.showModal.apply(null, arguments)
+                    },
+                  },
+                },
                 [_vm._v(" Nuevo")]
               ),
             ]),
@@ -29434,6 +29456,7 @@ var render = function () {
                               staticClass: "btn btn-warning my-2",
                               on: {
                                 click: function ($event) {
+                                  $event.preventDefault()
                                   return _vm.editForm(customer.id)
                                 },
                               },

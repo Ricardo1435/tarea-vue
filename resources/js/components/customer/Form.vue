@@ -11,21 +11,21 @@
 
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" v-model="name"/>
+                <input type="text" class="form-control" required id="name"  v-model="name"/>
             </div>
             <div class="form-group">
                 <label for="address">Dirección</label>
-                <input type="text" class="form-control" id="address" v-model="address"/>
+                <input type="text" class="form-control" required id="address" v-model="address"/>
             </div>
             <div class="form-group">
                 <label for="phone_number">Teléfono</label>
-                <input type="text" class="form-control" id="phone_number" v-model="phone_number"/>
+                <input type="text" class="form-control" required id="phone_number" v-model="phone_number"/>
             </div>
 
             <div class="text-center">
-                <button class="btn btn-primary my-2" @click="saveHandler" v-if="!isEditCustomer">Guardar</button>
-                <button class="btn btn-primary my-2" @click="updateHandler" v-else>Actualizar</button>
-                <button class="btn btn-secondary my-2" @click="cancelHandler">Cancelar</button>
+                <button class="btn btn-primary my-2" @click.prevent="saveHandler" v-if="!isEditCustomer">Guardar</button>
+                <button class="btn btn-primary my-2" @click.prevent="updateHandler" v-else>Actualizar</button>
+                <button class="btn btn-secondary my-2" @click.prevent="cancelHandler">Cancelar</button>
             </div>
             </div>
         </div>
